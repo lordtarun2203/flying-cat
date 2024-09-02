@@ -1,9 +1,9 @@
-import { useRef } from 'react';
-import moon from './moon.png';
-import land from './land.png';
-import cat from './cat.gif';
+import { useRef } from "react";
+import moon from "./moon.png";
+import land from "./land.png";
+import cat from "./cat.gif";
 
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 function App() {
   const ref = useRef();
@@ -11,21 +11,13 @@ function App() {
   return (
     <div>
       <Parallax pages={4} ref={ref}>
-        {/* <ParallaxLayer speed={1}>
-            <h2>Welcome to my website</h2>
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1} speed={0.5}>
-            <h2>Web development is fun!</h2>
-        </ParallaxLayer> */}
-
         <ParallaxLayer
           offset={0}
           speed={1}
           factor={2}
           style={{
             backgroundImage: `url(${moon})`,
-            backgroundSize: 'cover',
+            backgroundSize: "cover",
           }}
         />
 
@@ -35,15 +27,15 @@ function App() {
           factor={4}
           style={{
             backgroundImage: `url(${land})`,
-            backgroundSize: 'cover',
+            backgroundSize: "cover",
           }}
-        ></ParallaxLayer>
+        />
 
         <ParallaxLayer
           sticky={{ start: 0.9, end: 2.5 }}
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: "center" }}
         >
-          <img src={cat} />
+          <img src={cat} alt="Cat" />
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -55,11 +47,23 @@ function App() {
         </ParallaxLayer>
 
         <ParallaxLayer
+          style={{ textAlign: "center" }}
           offset={3}
           speed={2}
           onClick={() => ref.current.scrollTo(0)}
         >
-          <h2>Hi Mom!</h2>
+          <h2>Hi Friend!</h2>
+          <a
+            href="https://github.com/lordtarun2203"
+            style={{
+              fontFamily: "sans-serif",
+              fontSize: "18px",
+              color: "white", // Ensure the text is visible on the background
+              textDecoration: "none", // Remove underline
+            }}
+          >
+            Click Me! 😸❤️
+          </a>
         </ParallaxLayer>
       </Parallax>
     </div>
